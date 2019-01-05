@@ -1,8 +1,8 @@
-# Operation APIs for SIL's AV machine
+# Operation APIs for SIL's audio‐visual device
 
 ## 概要
 
-SILのAV機器をHTTP経由で操作するためのAPIです。
+SILの視聴覚機器をHTTP経由で操作するためのAPIです。
 
 TODO: もっとちゃんと書く
 
