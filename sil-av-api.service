@@ -1,0 +1,15 @@
+[Unit]
+Description=Operation APIs for SIL's audio‐visual device
+Requires=network-online.target
+After=network.target
+
+[Service]
+Restart=on-failure
+Environment=PORT=5000
+ExecStart=/home/ubuntu/sil-av-api/venv/bin/python app.py
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGINT
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
