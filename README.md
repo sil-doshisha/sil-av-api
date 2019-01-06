@@ -19,4 +19,12 @@ $ curl http://{api-endpoint-url}/hogehoge
 - `/pj/{logical_projector_name}/power/status`: プロジェクターの電源の状態を確認する
 - `/pj/{logical_projector_name}/power/on`: プロジェクターの電源を入れる
 - `/pj/{logical_projector_name}/power/off`: プロジェクターの電源を切る
- 
+
+
+## プロダクション向けに起動する
+
+```bash
+$ export PORT=5000 && python3 app.py
+```
+
+環境変数として`PORT`があると、自動的に`0.0.0.0`で起動する。
