@@ -35,5 +35,62 @@ def set_projector_power_off(req, resp, *, logical_projector_name):
     resp.media = pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name(logical_projector_name))
 
 
+@api.route("/macro/wivia")
+def macro_wivia(req, resp):
+    resp.media = [
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ3")),
+        vm5808h.switch_port(input_port="01", output_port="01"),
+        vm5808h.switch_port(input_port="02", output_port="02"),
+        vm5808h.switch_port(input_port="03", output_port="03")
+    ]
+
+
+@api.route("/macro/bd")
+def macro_bd(req, resp):
+    resp.media = [
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ3")),
+        vm5808h.switch_port(input_port="07", output_port="01"),
+        vm5808h.switch_port(input_port="07", output_port="02"),
+        vm5808h.switch_port(input_port="07", output_port="03")
+    ]
+
+
+@api.route("/macro/ext_hdmi_each")
+def macro_ext_hdmi_each(req, resp):
+    resp.media = [
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ3")),
+        vm5808h.switch_port(input_port="04", output_port="01"),
+        vm5808h.switch_port(input_port="05", output_port="02"),
+        vm5808h.switch_port(input_port="06", output_port="03")
+    ]
+
+
+@api.route("/macro/ext_hdmi_3")
+def macro_ext_hdmi_3(req, resp):
+    resp.media = [
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
+        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ3")),
+        vm5808h.switch_port(input_port="06", output_port="01"),
+        vm5808h.switch_port(input_port="06", output_port="02"),
+        vm5808h.switch_port(input_port="06", output_port="03")
+    ]
+
+
+@api.route("/macro/off")
+def macro_off(req, resp):
+    resp.media = [
+        pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
+        pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
+        pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name("PJ3"))
+    ]
+
+
 if __name__ == '__main__':
     api.run()
