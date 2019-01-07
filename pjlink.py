@@ -9,21 +9,21 @@ def get_physical_projector_data_from_logical_name(logical_projector_name):
             "result": "succeeded",
             "logical_projector_name": "{0}".format(logical_projector_name),
             "physical_projector_ip_address": os.getenv("{0}_IP_ADDRESS".format(logical_projector_name)),
-            "physical_projector_password": os.getenv("{0}_PASSWORD".format(logical_projector_name))
+            "physical_projector_password": os.getenv("{0}_PJLINK_PASSWORD".format(logical_projector_name))
         }
     elif logical_projector_name == "PJ2":
         return {
             "result": "succeeded",
             "logical_projector_name": "{0}".format(logical_projector_name),
             "physical_projector_ip_address": os.getenv("{0}_IP_ADDRESS".format(logical_projector_name)),
-            "physical_projector_password": os.getenv("{0}_PASSWORD".format(logical_projector_name))
+            "physical_projector_password": os.getenv("{0}_PJLINK_PASSWORD".format(logical_projector_name))
         }
     elif logical_projector_name == "PJ3":
         return {
             "result": "succeeded",
             "logical_projector_name": "{0}".format(logical_projector_name),
             "physical_projector_ip_address": os.getenv("{0}_IP_ADDRESS".format(logical_projector_name)),
-            "physical_projector_password": os.getenv("{0}_PASSWORD".format(logical_projector_name))
+            "physical_projector_password": os.getenv("{0}_PJLINK_PASSWORD".format(logical_projector_name))
         }
     else:
         return {

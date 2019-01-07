@@ -1,6 +1,7 @@
 import responder
 import vm5808h
 import pjlink
+import ptez570
 
 api = responder.API()
 
@@ -22,34 +23,34 @@ def switch_port(req, resp, *, input_port, output_port):
 
 @api.route("/pj/{logical_projector_name}/power/status")
 def get_projector_power_status(req, resp, *, logical_projector_name):
-    resp.media = pjlink.get_power_status(pjlink.get_physical_projector_data_from_logical_name(logical_projector_name))
+    resp.media = pjlink.get_power_status(ptez570.get_physical_projector_data_from_logical_name(logical_projector_name))
 
 
 @api.route("/pj/{logical_projector_name}/power/on")
 def set_projector_power_on(req, resp, *, logical_projector_name):
-    resp.media = pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name(logical_projector_name))
+    resp.media = ptez570.set_power_on(ptez570.get_physical_projector_data_from_logical_name(logical_projector_name))
 
 
 @api.route("/pj/{logical_projector_name}/power/off")
 def set_projector_power_off(req, resp, *, logical_projector_name):
-    resp.media = pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name(logical_projector_name))
+    resp.media = ptez570.set_power_off(ptez570.get_physical_projector_data_from_logical_name(logical_projector_name))
 
 
 @api.route("/macro/pj_off")
 def macro_off(req, resp):
     resp.media = [
-        pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
-        pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
-        pjlink.set_power_off(pjlink.get_physical_projector_data_from_logical_name("PJ3"))
+        ptez570.set_power_off(ptez570.get_physical_projector_data_from_logical_name("PJ1")),
+        ptez570.set_power_off(ptez570.get_physical_projector_data_from_logical_name("PJ2")),
+        ptez570.set_power_off(ptez570.get_physical_projector_data_from_logical_name("PJ3"))
     ]
 
 
 @api.route("/macro/pj_on")
 def macro_pj_on(req, resp):
     resp.media = [
-        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ1")),
-        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ2")),
-        pjlink.set_power_on(pjlink.get_physical_projector_data_from_logical_name("PJ3"))
+        ptez570.set_power_on(ptez570.get_physical_projector_data_from_logical_name("PJ1")),
+        ptez570.set_power_on(ptez570.get_physical_projector_data_from_logical_name("PJ2")),
+        ptez570.set_power_on(ptez570.get_physical_projector_data_from_logical_name("PJ3"))
     ]
 
 
